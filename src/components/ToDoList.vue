@@ -28,8 +28,9 @@ export default defineComponent({
     removeTask(taskId: string) {
       this.deleteTask(taskId);
     },
-    changeTaskStatus(taskId: string, event: any) {
-      const task = { taskId, isCompleted: event.target.checked };
+    changeTaskStatus(taskId: string, event: Event) {
+      const e = event.target as HTMLInputElement;
+      const task = { taskId, isCompleted: e.checked };
       this.updateTask(task);
     },
   },
