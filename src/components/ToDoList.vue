@@ -8,6 +8,7 @@
   </ul>
 </template>
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent } from 'vue';
 
 interface IToDo {
@@ -21,8 +22,13 @@ interface IToDoList {
 
 export default defineComponent({
   data: (): IToDoList => ({
-    toDoList: [{ id: 'asdasd', title: 'Tarefa 1' }],
+    toDoList: [],
   }),
+  mounted() {
+    axios.get<IToDo[]>('tasks').then(res => {
+      this.toDoList = res.data;
+    });
+  },
   methods: {
     showToDo(ToDoTitle: string) {
       alert(ToDoTitle);
