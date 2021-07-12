@@ -8,7 +8,7 @@
         v-on:change="fulfillTask(toDo.id, $event)"
       />
       {{ toDo.title }}
-      <button v-on:click="showToDo(toDo.title)">Detalhes da tarefa</button>
+      <button v-on:click="deleteTask(toDo.id)">Remover da tarefa</button>
     </li>
   </ul>
 </template>
@@ -19,7 +19,7 @@ import { defineComponent } from 'vue';
 interface IToDo {
   id: string;
   title: string;
-  status: 'completed' | 'waiting';
+  status: 'completed' | 'waiting' | 'canceled';
 }
 
 interface IToDoList {
@@ -32,15 +32,24 @@ export default defineComponent({
   }),
   mounted() {
     axios.get<IToDo[]>('tasks').then(res => {
-      this.toDoList = res.data;
+      this.toDoList = res.data.filter(task => task.status !== 'canceled');
     });
   },
   methods: {
-    showToDo(ToDoTitle: string) {
-      alert(ToDoTitle);
+    deleteTask(taskId: string) {
+      axios
+        .patch(`tasks/${taskId}`, {
+          status: 'canceled',
+        })
+        .then(() => {
+          const taskIndex = this.toDoList.findIndex(task => task.id === taskId);
+          if (taskIndex !== -1) {
+            this.toDoList.splice(taskIndex, 1);
+          }
+        });
     },
-    fulfillTask: (toDoId: string, event: any) => {
-      axios.patch(`tasks/${toDoId}`, {
+    fulfillTask: (taskId: string, event: any) => {
+      axios.patch(`tasks/${taskId}`, {
         status: event.target.checked ? 'completed' : 'waiting',
       });
     },
