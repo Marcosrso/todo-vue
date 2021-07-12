@@ -5,53 +5,32 @@
       <input
         type="checkbox"
         :checked="toDo.status == 'completed'"
-        v-on:change="fulfillTask(toDo.id, $event)"
+        v-on:change="changeTaskStatus(toDo.id, $event)"
       />
       {{ toDo.title }}
-      <button v-on:click="deleteTask(toDo.id)">Remover da tarefa</button>
+      <button v-on:click="removeTask(toDo.id)">Remover da tarefa</button>
     </li>
   </ul>
 </template>
 <script lang="ts">
-import axios from 'axios';
 import { defineComponent } from 'vue';
-
-interface IToDo {
-  id: string;
-  title: string;
-  status: 'completed' | 'waiting' | 'canceled';
-}
-
-interface IToDoList {
-  toDoList: IToDo[];
-}
+import { mapActions, mapState } from 'vuex';
 
 export default defineComponent({
-  data: (): IToDoList => ({
-    toDoList: [],
+  computed: mapState({
+    toDoList: 'tasks',
   }),
   mounted() {
-    axios.get<IToDo[]>('tasks').then(res => {
-      this.toDoList = res.data.filter(task => task.status !== 'canceled');
-    });
+    this.getTasks();
   },
   methods: {
-    deleteTask(taskId: string) {
-      axios
-        .patch(`tasks/${taskId}`, {
-          status: 'canceled',
-        })
-        .then(() => {
-          const taskIndex = this.toDoList.findIndex(task => task.id === taskId);
-          if (taskIndex !== -1) {
-            this.toDoList.splice(taskIndex, 1);
-          }
-        });
+    ...mapActions(['getTasks', 'deleteTask', 'updateTask']),
+    removeTask(taskId: string) {
+      this.deleteTask(taskId);
     },
-    fulfillTask: (taskId: string, event: any) => {
-      axios.patch(`tasks/${taskId}`, {
-        status: event.target.checked ? 'completed' : 'waiting',
-      });
+    changeTaskStatus(taskId: string, event: any) {
+      const task = { taskId, isCompleted: event.target.checked };
+      this.updateTask(task);
     },
   },
 });

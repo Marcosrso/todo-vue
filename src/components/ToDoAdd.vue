@@ -4,9 +4,8 @@
   <button v-on:click="addToDo">Adicionar tarefa</button>
 </template>
 <script lang="ts">
-import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 import { defineComponent } from 'vue';
+import { mapActions } from 'vuex';
 
 interface IToDoAdd {
   toDoTitle: string;
@@ -19,14 +18,9 @@ export default defineComponent({
     };
   },
   methods: {
+    ...mapActions(['insertTask']),
     addToDo() {
-      const newTask = {
-        id: uuidv4(),
-        title: this.toDoTitle,
-        status: 'waiting',
-      };
-
-      axios.post('tasks', newTask).then(() => {
+      this.insertTask(this.toDoTitle).then(() => {
         this.toDoTitle = '';
       });
     },

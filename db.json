@@ -9,7 +9,7 @@
     {
       "id": "484d2182-2d47-4dab-b385-3defa156b0aa",
       "title": "Tarefa 2",
-      "status": "waiting"
+      "status": "completed"
     },
     {
       "id": "dcbdc13b-3ee2-46d0-b500-fce15bc4a345",
@@ -20,6 +20,96 @@
       "id": "4aa3d750-d5de-4247-959f-ee6d6f7ff967",
       "title": "Tarefa 4",
       "status": "waiting"
+    },
+    {
+      "id": "b36f64ac-a8ba-4356-97a7-bb2b1831cec3",
+      "title": "Tarefa 8",
+      "status": "waiting"
+    },
+    {
+      "id": "8b6b353f-2c83-4f3e-87ce-5d29588b050b",
+      "title": "asdads",
+      "status": "waiting"
+    },
+    {
+      "id": "57935247-b4cd-40b7-9989-991934847be7",
+      "title": "asasd",
+      "status": "canceled"
+    },
+    {
+      "id": "3adecde9-3c28-4d8c-bb9f-850465e6911f",
+      "title": "",
+      "status": "waiting"
+    },
+    {
+      "id": "30427318-cd2d-409b-b776-96c2b753abb6",
+      "title": "asdasd",
+      "status": "waiting"
+    },
+    {
+      "id": "4b057c62-aa5b-4bc4-8c1a-0f22c4b4fadd",
+      "title": "asdasd",
+      "status": "canceled"
+    },
+    {
+      "id": "9f105e34-6a7b-479c-bc8c-d8a28c201598",
+      "title": "asdasdddd",
+      "status": "canceled"
+    },
+    {
+      "id": "f5d3802e-211a-4499-8dff-6458916ceb0d",
+      "title": "TESET de etad",
+      "status": "canceled"
+    },
+    {
+      "id": "241ae5b5-5b66-47e2-b9ba-0f8ae9e3af68",
+      "title": "TTT",
+      "status": "canceled"
+    },
+    {
+      "id": "89874777-c923-4164-9046-a349c6ea138d",
+      "title": "asda",
+      "status": "canceled"
+    },
+    {
+      "id": "9fc4ce55-6fc0-4ded-a2ec-4a821bd27637",
+      "title": "",
+      "status": "canceled"
+    },
+    {
+      "id": "0263cfbc-5a75-4bc0-969c-0e2287648276",
+      "title": "asdasd",
+      "status": "completed"
+    },
+    {
+      "id": "f9b5f620-da7d-48ea-8b75-593b4b78eb3f",
+      "title": "asdasdas",
+      "status": "completed"
+    },
+    {
+      "id": "9a81a49c-752c-4696-b01e-a46cb1d5c9ca",
+      "title": "z\\\\zxdsa",
+      "status": "completed"
+    },
+    {
+      "id": "8c877170-ef1a-4f51-84c4-54e8bc8caacb",
+      "title": "asd",
+      "status": "completed"
+    },
+    {
+      "id": "00cdde0d-1e95-4942-b3a9-07a287e73cba",
+      "title": "asdad",
+      "status": "completed"
+    },
+    {
+      "id": "53949727-465b-4114-b87c-74c14322ac15",
+      "title": "asdasd",
+      "status": "waiting"
+    },
+    {
+      "id": "c77dcdc3-4b51-4c9c-9e3c-3996d0b5f562",
+      "title": "asdasd",
+      "status": "canceled"
     }
   ]
 }
