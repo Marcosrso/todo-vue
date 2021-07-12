@@ -3,18 +3,22 @@
   <input type="text" v-model="toDo" placeholder="Nome da tarefa" />
   <button v-on:click="addToDo">Adicionar tarefa</button>
 </template>
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 
+interface IToDoAdd {
+  toDoTitle: string;
+}
+
 export default defineComponent({
-  data() {
+  data(): IToDoAdd {
     return {
-      toDo: '',
+      toDoTitle: '',
     };
   },
   methods: {
     addToDo() {
-      alert(this.toDo);
+      alert(this.toDoTitle);
     },
   },
 });

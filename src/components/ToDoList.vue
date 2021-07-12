@@ -3,20 +3,29 @@
   <ul>
     <li v-for="toDo in toDoList" :key="toDo.id">
       {{ toDo.title }}
-      <button v-on:click="showToDo()">Detalhes da tarefa</button>
+      <button v-on:click="showToDo(toDo.title)">Detalhes da tarefa</button>
     </li>
   </ul>
 </template>
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 
+interface IToDo {
+  id: string;
+  title: string;
+}
+
+interface IToDoList {
+  toDoList: IToDo[];
+}
+
 export default defineComponent({
-  data: () => ({
-    toDoList: [{ id: 'asdasd', title: 'Teste' }],
+  data: (): IToDoList => ({
+    toDoList: [{ id: 'asdasd', title: 'Tarefa 1' }],
   }),
   methods: {
-    showToDo() {
-      alert(this.toDoList[0].title);
+    showToDo(ToDoTitle: string) {
+      alert(ToDoTitle);
     },
   },
 });
