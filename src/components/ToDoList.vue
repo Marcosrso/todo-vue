@@ -11,7 +11,12 @@
         </router-link>
       </div>
     </div>
-    <ul class="list-group list-group-flush">
+    <span
+      v-if="loading"
+      class="spinner-border text-primary"
+      role="status"
+    ></span>
+    <ul v-else class="list-group list-group-flush">
       <li
         v-for="toDo in toDoList"
         :key="toDo.id"
@@ -53,6 +58,7 @@ export default defineComponent({
   components: { Breadcrumb },
   computed: mapState({
     toDoList: 'tasks',
+    loading: 'loading',
   }),
   mounted() {
     this.getTasks();
