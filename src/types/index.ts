@@ -3,3 +3,8 @@ export interface IToDo {
     title: string;
     status: 'completed' | 'waiting' | 'canceled';
 }
+
+export interface Ibreadcrumb { 
+    name: string; 
+    path?: string;
+}

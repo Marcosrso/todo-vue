@@ -6,11 +6,19 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "Home",
     component: import('../views/Home.vue'),
+    meta:{
+      title: 'Adicionar Tarefa',
+      breadcrumb: [{name: "Home"}]
+    }
   },
   {
     path: "/tarefas/adicionar",
     name: "Adicionar tarefas",
     component: import('../views/Tasks.vue'),
+    meta:{
+      title: 'Adicionar Tarefa',
+      breadcrumb: [{name: "Home", path:'/'}]
+    }
   },
 ];
 

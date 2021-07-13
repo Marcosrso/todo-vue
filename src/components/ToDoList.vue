@@ -1,5 +1,6 @@
 <template>
-  <div class="my-5">
+  <div><Breadcrumb /></div>
+  <div class="mb-5">
     <div class="row align-items-center justify-content-between mb-4">
       <div class="col text-start">
         <h4>Lista de tarefas</h4>
@@ -45,8 +46,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { mapActions, mapState } from 'vuex';
+import Breadcrumb from '@/components/Breadcrumb.vue';
 
 export default defineComponent({
+  name: 'ToDoList',
+  components: { Breadcrumb },
   computed: mapState({
     toDoList: 'tasks',
   }),

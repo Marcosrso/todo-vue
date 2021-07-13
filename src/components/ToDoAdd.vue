@@ -1,5 +1,6 @@
 <template>
-  <div class="my-5">
+  <div><Breadcrumb /></div>
+  <div class="mb-5">
     <h4>Adicionar tarefa</h4>
     <form>
       <div class="form-row">
@@ -21,12 +22,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
+import Breadcrumb from '@/components/Breadcrumb.vue';
 
 interface IToDoAdd {
   toDoTitle: string;
 }
 
 export default defineComponent({
+  name: 'ToDoAdd',
+  components: { Breadcrumb },
   data(): IToDoAdd {
     return {
       toDoTitle: '',
