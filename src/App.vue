@@ -1,9 +1,22 @@
 <template>
-  <h2>My To Do App</h2>
-  <router-view />
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h2>My To Do App</h2>
+        <router-view />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style>
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

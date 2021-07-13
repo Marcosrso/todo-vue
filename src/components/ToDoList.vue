@@ -1,16 +1,46 @@
 <template>
-  <p>Lista de tarefas</p>
-  <ul>
-    <li v-for="toDo in toDoList" :key="toDo.id">
-      <input
-        type="checkbox"
-        :checked="toDo.status == 'completed'"
-        v-on:change="changeTaskStatus(toDo.id, $event)"
-      />
-      {{ toDo.title }}
-      <button v-on:click="removeTask(toDo.id)">Remover da tarefa</button>
-    </li>
-  </ul>
+  <div class="my-5">
+    <div class="row align-items-center justify-content-between mb-4">
+      <div class="col text-start">
+        <h4>Lista de tarefas</h4>
+      </div>
+      <div class="col text-end">
+        <router-link to="/tarefas/adicionar">
+          <button class="btn btn-primary">Adicionar tarefa</button>
+        </router-link>
+      </div>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li
+        v-for="toDo in toDoList"
+        :key="toDo.id"
+        class="
+          list-group-item
+          d-flex
+          justify-content-between
+          align-items-center
+        "
+      >
+        <div>
+          <div class="form-check">
+            <input
+              id="taskCheckbox"
+              class="form-check-input"
+              type="checkbox"
+              :checked="toDo.status == 'completed'"
+              v-on:change="changeTaskStatus(toDo.id, $event)"
+            />
+            <label class="form-check-label" for="taskCheckbox">{{
+              toDo.title
+            }}</label>
+          </div>
+        </div>
+        <button v-on:click="removeTask(toDo.id)" class="btn btn-danger">
+          <i class="bi bi-trash"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
