@@ -26,8 +26,8 @@ yarn serve
 
 ## O que você vai encontrar nesse projeto
 
-Vue 3 (com Typescript)
-Vuex
-Vue Router (Code splitting e com Load Indicator)
-Requisições à API utilizando axios e json-server
-Bootstrap
+* Vue 3 (com Typescript)
+* Vuex
+* Vue Router (Code splitting e com Load Indicator)
+* Requisições à API utilizando axios e json-server
+* Bootstrap
