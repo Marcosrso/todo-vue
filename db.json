@@ -1,0 +1,25 @@
+{
+  "lists": [],
+  "tasks": [
+    {
+      "id": "aasdaskh1q23123h12k3h",
+      "title": "Tarefa 1",
+      "status": "completed"
+    },
+    {
+      "id": "484d2182-2d47-4dab-b385-3defa156b0aa",
+      "title": "Tarefa 2",
+      "status": "waiting"
+    },
+    {
+      "id": "dcbdc13b-3ee2-46d0-b500-fce15bc4a345",
+      "title": "Tarefa 3",
+      "status": "waiting"
+    },
+    {
+      "id": "c77dcdc3-4b51-4c9c-9e3c-3996d0b5f562",
+      "title": "Tarefa 4",
+      "status": "canceled"
+    }
+  ]
+}
