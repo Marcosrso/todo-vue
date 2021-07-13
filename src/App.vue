@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-6">
-        <h2>My To Do App</h2>
+        <div class="col my-5">
+          <h2>My To Do App</h2>
+        </div>
         <router-view />
       </div>
     </div>
