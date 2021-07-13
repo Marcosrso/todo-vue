@@ -29,7 +29,7 @@
         </small>
       </div>
       <div class="col text-end">
-        <button type="submit" class="btn btn-primary my-1">
+        <button :disabled="onSubmit" type="submit" class="btn btn-primary my-1">
           Adicionar tarefa
         </button>
       </div>
@@ -44,6 +44,7 @@ import Breadcrumb from '@/components/Breadcrumb.vue';
 interface IToDoAdd {
   toDoTitle: string;
   inputError: boolean;
+  onSubmit: boolean;
 }
 
 export default defineComponent({
@@ -53,14 +54,20 @@ export default defineComponent({
     return {
       toDoTitle: '',
       inputError: false,
+      onSubmit: false,
     };
   },
   methods: {
     ...mapActions(['insertTask']),
     addToDo() {
-      this.insertTask(this.toDoTitle).then(() => {
-        this.toDoTitle = '';
-      });
+      this.onSubmit = true;
+      this.insertTask(this.toDoTitle)
+        .then(() => {
+          this.toDoTitle = '';
+        })
+        .finally(() => {
+          this.onSubmit = false;
+        });
     },
     onKeypressInput() {
       if (this.toDoTitle.trim().length && this.inputError) {
