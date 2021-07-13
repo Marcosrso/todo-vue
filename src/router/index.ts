@@ -17,7 +17,10 @@ const routes: Array<RouteRecordRaw> = [
     component: import('../views/Tasks.vue'),
     meta:{
       title: 'Adicionar Tarefa',
-      breadcrumb: [{name: "Home", path:'/'}]
+      breadcrumb: [
+        {name: "Home", path:'/'}, 
+        {name: "Adicionar Tarefa"}
+      ]
     }
   },
 ];

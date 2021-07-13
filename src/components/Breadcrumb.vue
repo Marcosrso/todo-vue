@@ -4,7 +4,7 @@
       <li
         v-for="(breadcrumb, index) in breadcrumbList"
         :key="index"
-        class="breadcrumb-item"
+        class="breadcrumb-item d-flex align-items-center"
         :class="{ active: !!breadcrumb.path }"
         aria-current="page"
       >
@@ -15,7 +15,7 @@
         >
           {{ breadcrumb.name }}
         </button>
-        <div v-else>{{ breadcrumb.name }}</div>
+        <div v-else class="text-muted">{{ breadcrumb.name }}</div>
       </li>
     </ol>
   </nav>
